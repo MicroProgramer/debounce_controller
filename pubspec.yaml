@@ -1,6 +1,6 @@
 name: debounce_controller
-description: "Debounce controller based on GetX"
-version: 1.0.0
+description: A Flutter package for handling debounced text input with async operations using GetX, ideal for responsive search and data fetching.
+version: 1.0.1
 homepage: https://mubashar.dev
 repository: https://github.com/MicroProgramer/debounce_controller
 

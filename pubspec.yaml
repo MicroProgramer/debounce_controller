@@ -1,7 +1,8 @@
 name: debounce_controller
 description: "Debounce controller based on GetX"
-version: 0.0.1
-homepage:
+version: 1.0.0
+homepage: https://mubashar.dev
+repository: https://github.com/MicroProgramer/debounce_controller
 
 environment:
   sdk: '>=3.4.0 <4.0.0'

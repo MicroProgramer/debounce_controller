@@ -83,8 +83,10 @@ class HomeScreen extends StatelessWidget {
   }
 
   // Example async search operation, replace with actual implementation.
-  Future<List<String>> _searchOperation(TextEditingController controller) async {
+  Future<List<String>> _searchOperation(
+      TextEditingController controller) async {
     await Future.delayed(const Duration(seconds: 1)); // Simulate network delay
-    return List.generate(5, (index) => 'Result ${index + 1} for "${controller.text}"');
+    return List.generate(
+        5, (index) => 'Result ${index + 1} for "${controller.text}"');
   }
 }

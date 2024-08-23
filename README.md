@@ -1,16 +1,12 @@
 # DebounceController
 
-`DebounceController` is a Flutter package that provides a simple yet powerful way to handle
-debounced text input operations with support for asynchronous functions. It leverages the `GetX`
-package for reactive state management and allows for easy integration of debounce functionality in
-your Flutter applications.
+`DebounceController` is a Flutter package that provides a simple yet powerful way to handle debounced text input operations with support for asynchronous functions. It leverages the `GetX` package for reactive state management and allows for easy integration of debounce functionality in your Flutter applications.
 
 ## Features
 
 - **Debounced Text Input**: Prevents frequent calls to a function while typing.
 - **Asynchronous Operation Support**: Handle complex operations like API requests seamlessly.
-- **Multiple Controller Support**: Create and manage multiple `DebounceController` instances using
-  unique tags.
+- **Multiple Controller Support**: Create and manage multiple `DebounceController` instances using unique tags.
 - **Error Handling**: Custom error handling with callback support.
 - **Reactive State Management**: Built on top of `GetX`, providing a reactive experience.
 
@@ -38,24 +34,20 @@ import 'package:flutter/material.dart';
 
 ### 2. Create a DebounceController
 
-You can create a `DebounceController` instance using `Get.put` with an optional tag if you need
-multiple controllers:
+You can create a `DebounceController` instance using `Get.put` with an optional tag if you need multiple controllers:
 
 ```dart
-
 final searchController1 = Get.put(
-      () =>
-      DebounceController<String>(
-        futureOperation: _searchOperation,
-      ),
+  () => DebounceController<String>(
+    futureOperation: _searchOperation,
+  ),
   tag: 'searchController1',
 );
 ```
 
 ### 3. Implement the Future Operation
 
-The `DebounceController` requires a `Future<List<T>> Function(TextEditingController)` to process the
-text input:
+The `DebounceController` requires a `Future<List<T>> Function(TextEditingController)` to process the text input:
 
 ```dart
 Future<List<String>> _searchOperation(TextEditingController controller) async {
@@ -69,24 +61,21 @@ Future<List<String>> _searchOperation(TextEditingController controller) async {
 Use the `DebounceController` in your UI, reacting to data and loading states:
 
 ```dart
-Obx
-(
-() {
-if (searchController1.loading.value) {
-return CircularProgressIndicator();
-}
-return Expanded(
-child: ListView.builder(
-itemCount: searchController1.data.length,
-itemBuilder: (context, index) {
-return ListTile(
-title: Text(searchController1.data[index].toString()),
-);
-},
-),
-);
-})
-,
+Obx(() {
+  if (searchController1.loading.value) {
+    return CircularProgressIndicator();
+  }
+  return Expanded(
+    child: ListView.builder(
+      itemCount: searchController1.data.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(searchController1.data[index].toString()),
+        );
+      },
+    ),
+  );
+}),
 ```
 
 ### 5. Full Example
@@ -192,14 +181,12 @@ class HomeScreen extends StatelessWidget {
 You can handle errors using the `onError` parameter:
 
 ```dart
-
 final searchController = Get.put(
-      () =>
-      DebounceController<String>(
-        futureOperation: _searchOperation,
-        onError: (error, stackTrace) {
-          print('Error: $error');
-        },
-      ),
+  () => DebounceController<String>(
+    futureOperation: _searchOperation,
+    onError: (error, stackTrace) {
+      print('Error: $error');
+    },
+  ),
 );
 ```
